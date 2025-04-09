@@ -190,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>With almost a near perfect season the Husker Volleyball team had their eyes set on making it to the National Championship for the 2024 season. Sadly, the Nebraska Volleyball team did not have the outcome that they were hoping for, falling short in the Final Four. First, let’s dive into looking at the kills per set from other teams in the Big Ten and who has the highest numbers.</p>
+<p>With almost a near perfect season the Husker Volleyball team had their eyes set on making it to the National Championship for the 2024 season. Sadly, the Nebraska Volleyball team did not have the outcome that they were hoping for, falling short in the Final Four. But looking at their season before this, they won the Big Ten Championships. Their season was almost perfect and there stats how that. First, let’s dive into looking at the kills per set from other teams in the Big Ten and who has the highest numbers.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -202,9 +202,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#|\\ warning: false </span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>Institution, <span class="at">y=</span>Kills)) <span class="sc">+</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Kills Per Set Distribution"</span>, <span class="at">x=</span><span class="st">"Institutions"</span>, <span class="at">y=</span><span class="st">"Kills"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Offensive Output: Kills Per Set Across Big Ten Teams"</span>, <span class="at">x=</span><span class="st">"Institutions"</span>, <span class="at">y=</span><span class="st">"Kills"</span>,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span><span class="st">"Nebraska's biggest competition came down to Penn State."</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Big Ten Data | By: Kaitlyn Schmeling"</span>) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Big Ten Data from class | By: Kaitlyn Schmeling"</span>) <span class="sc">+</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -225,22 +225,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Team =</span> <span class="fu">c</span>(<span class="st">"Nebraska"</span>, <span class="st">"Penn State"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Minnesota"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Institution =</span> <span class="fu">c</span>(<span class="st">"Nebraska"</span>, <span class="st">"Penn State"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Minnesota"</span>),</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Kills =</span> <span class="fu">c</span>(<span class="dv">900</span>, <span class="dv">850</span>, <span class="dv">880</span>, <span class="dv">820</span>),</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Errors =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">140</span>, <span class="dv">160</span>, <span class="dv">130</span>),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Total_Attacks =</span> <span class="fu">c</span>(<span class="dv">2200</span>, <span class="dv">2100</span>, <span class="dv">2150</span>, <span class="dv">2000</span>),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Service_Errors =</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">70</span>, <span class="dv">85</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>stats_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats, <span class="at">cols =</span> <span class="sc">-</span>Team, <span class="at">names_to =</span> <span class="st">"Stat"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stats_long, <span class="fu">aes</span>(<span class="at">x=</span>Stat, <span class="at">y=</span>Value, <span class="at">fill=</span>Team)) <span class="sc">+</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">position=</span><span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Nebraska vs. Top Opponents: Key Stats"</span>, <span class="at">x=</span><span class="st">"Stat Type"</span>, <span class="at">y=</span><span class="st">"Value"</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span><span class="st">"Nebraska having the highest total attacks and kills."</span>,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Big Ten Data | By: Kaitlyn Schmeling"</span>) <span class="sc">+</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Total_Attacks =</span> <span class="fu">c</span>(<span class="dv">2200</span>, <span class="dv">2100</span>, <span class="dv">2150</span>, <span class="dv">2000</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>stats_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats, <span class="at">cols =</span> <span class="sc">-</span>Institution, <span class="at">names_to =</span> <span class="st">"Stat"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stats_long, <span class="fu">aes</span>(<span class="at">x=</span>Stat, <span class="at">y=</span>Value, <span class="at">fill=</span>Institution)) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">position=</span><span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"2024 Big Ten Volleyball: Offensive Metrics by Team"</span>, <span class="at">x=</span><span class="st">"Stat Type"</span>, <span class="at">y=</span><span class="st">"Value"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span><span class="st">"Nebraska having the highest total attacks and kills."</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Big Ten Data from class | By: Kaitlyn Schmeling"</span>) <span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -276,22 +275,25 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"2024_big_ten_vball.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Institution <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Nebraska"</span>, <span class="st">"Penn St."</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Purdue"</span>))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Institution, <span class="at">y =</span> BlockSolos, <span class="at">color =</span> Institution, <span class="at">group =</span> Institution)) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">linewidth =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Nebraska"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"Penn St."</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"Wisconsin"</span> <span class="ot">=</span> <span class="st">"black"</span>, <span class="st">"Purdue"</span> <span class="ot">=</span> <span class="st">"gold"</span>)) <span class="sc">+</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Service Errors Over the 2024 Season"</span>,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Comparing the top 4 finalist in the Big Ten Conference"</span>,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Big Ten Data | By: Kaitlyn Schmeling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"2024_big_ten_vball.csv"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Institution <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Nebraska"</span>, <span class="st">"Penn St."</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Purdue"</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> Institution, <span class="at">y =</span> SoloBlocks, <span class="at">color =</span> Institution, <span class="at">group =</span> Institution)) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Nebraska"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"Penn St."</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"Wisconsin"</span> <span class="ot">=</span> <span class="st">"black"</span>, <span class="st">"Purdue"</span> <span class="ot">=</span> <span class="st">"gold"</span>)) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Unforced Mistakes: Service Errors Across Big Ten Teams"</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Comparing the top 4 finalist in the Big Ten Conference"</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: Big Ten Data from class | By: Kaitlyn Schmeling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_point(linewidth = 10): Ignoring unknown parameters: `linewidth`</code></pre>
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_line()`: Each group consists of only one observation.
@@ -307,7 +309,7 @@ Attaching package: 'dplyr'</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>       x <span class="ot">=</span> <span class="st">"Team"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       y <span class="ot">=</span> <span class="st">"BlockSolos"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       y <span class="ot">=</span> <span class="st">"Solo Block Total"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       color <span class="ot">=</span> <span class="st">"Team"</span> <span class="sc">+</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
